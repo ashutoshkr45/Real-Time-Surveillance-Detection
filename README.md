@@ -90,3 +90,7 @@ Email: kumarashutosh9694@gmail.com
 ```
 
 *This project was developed as part of a group effort while participating in a Computer Vision Hackathon organized by SarasAI Institute. We won the Hackathon, securing the **First Position!*** 🎉
+
+<p align="center">
+  <img src="artifacts/Ashutosh_Clash-of-T-AI-TANS.png" alt="Winners_Team-of-Titans" width="500"/>
+</p>
