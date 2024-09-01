@@ -1,100 +1,100 @@
-Real Time Video Surveillance And Triggering System
-==============================
 
-There is a critical need for an automated surveillance solution that can continuously and accurately monitor environments for signs of emergencies, providing real-time alerts to facilitate rapid intervention. Traditional systems relying on human operators are often slow and prone to errors, which can result in severe consequences, including loss of life and extensive propertydamage. Our project aims to develop a real-time emergency surveillance system that leverages computer vision to detect and respond to critical situations such as fires, violence, and medical emergencies.
+# Real Time Video Surveillance and Triggering System
 
-![alt text](artifacts/Violence.png)
+There is a critical need for an automated surveillance solution that can continuously and accurately monitor environments for signs of emergencies, providing real-time alerts to facilitate rapid intervention. Traditional systems relying on human operators are often slow and prone to errors, which can result in severe consequences, including loss of life and extensive property damage. Our project aims to develop a real-time emergency surveillance system that leverages computer vision to detect and respond to critical situations such as fires, violence, and medical emergencies.
 
-<img src="artifacts/Telegram_bot.jpg" alt="alt text" width="200"/>
+<p align="center">
+  <img src="artifacts/Violence.png" alt="Violence Detection" width="400"/>
+  <img src="artifacts/Telegram_bot.jpg" alt="Telegram Bot" width="200"/>
+</p>
 
+## Project Demonstration
 
-# Project Demonstration Link:
+[Watch the Demo](https://drive.google.com/file/d/1YtPSY-Q1Xp_LdIYvHNcUdkq8IL7Nck73/view?usp=drive_link)
 
-[GDrive Link to Demo: ](https://drive.google.com/file/d/1YtPSY-Q1Xp_LdIYvHNcUdkq8IL7Nck73/view?usp=drive_link)
+## Dataset
 
-# Dataset link
+[Kaggle: Real Life Violence Situations Dataset](https://www.kaggle.com/datasets/mohamedmustafa/real-life-violence-situations-dataset)
 
-https://www.kaggle.com/datasets/mohamedmustafa/real-life-violence-situations-dataset
+## Steps to Run the Project
 
+1. **Clone the repository:**
 
-# STEPS to run the project:
+   ```bash
+   git clone https://github.com/Hirak010/Real-time-surveillance-detection.git
+   ```
 
-## STEP 01: 
-Clone the repository
+2. **Create an environment & activate:**
 
-```bash
-git clone https://github.com/Hirak010/Real-time-surveillance-detection.git
-```
+   ```bash
+   conda create -n env python=3.11 -y
+   conda activate ./env
+   ```
 
-## STEP 02: 
-Create an environment & activate
+3. **Install the requirements:**
 
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```bash
-conda create -n env python=3.11 -y
-conda activate ./env
-```
+4. **Run the webcam app:**
 
-## STEP 03: 
-Install the requirements
+   ```bash
+   python alert.py
+   ```
 
-
-```bash
-pip install -r requirements.txt
-```
-
-
-## STEP 04: 
-To run the webcam app
-
-
-```bash
-python alert.py
-```
+---
 
 # Technical Aspects
 
-## Human Fall Detection
-### Methodology
+### Human Fall Detection
 
-![alt text](artifacts/mediapipe_opencv.png)
+#### Methodology
 
-- You can check distance between foot C.G and body C.G
-- It's body center of gravity
-- It's foot center of gravity
-- You can check the count of how many times he fell.
-- If distance over 90 pixel(tall * 0.75), It displays he falling.
-- 1. Body C.G and foot C.G. 2. Only use X axis. 3. I use this distance difference to basis of judgment
-- It indicates if he woke up. (This only displays after falling.)
-- A count of 1 goes up in the area where you fell (the count is determined by which area your feet are in).
+<p align="center">
+  <img src="artifacts/mediapipe_opencv.png" alt="Human Fall Detection" width="500"/>
+</p>
 
-## Violence Detection
-### Methodology
-![alt text](artifacts/violence_detection.png)
+- Check the distance between foot C.G. and body C.G.
+- If the distance exceeds 90 pixels (tall * 0.75), it indicates a fall.
+- The system counts how many times a fall has occurred and detects when the person gets back up.
 
-- A dataset having 1000 videos each of violence category and non
-violence category was chosen
-- A model was trained using MobileNetV2 using the dataset
-- Real time video footage is given as input
-- Output is obtained as image frames
-- Use MobileNet V2 archvhitecture
-- It is a Convolutional neural network that is 53 layers deep
-- Provides real time classification capabilities under computing constraints in devices like smartphones.
-- Utilizes an inverted residual structure where the input and output of the residual blocks are thin bottleneck layers.
-- Uses lightweight convolutions to filter features in the expansion layer.
+### Violence Detection
 
-## Fire Detection
-### Methodology
-![alt text](artifacts/fire.jpg)
+#### Methodology
 
-- Loading the Pre-Trained Model: The cv2.CascadeClassifier is used to load a pre-trained fire detection model from an XML file. The file contains data from a model trained on images with and without fire, allowing it to detect fire patterns in new images.
-- How Cascade Classifier Works: The model processes video frames by scaling the image and sliding a window across different regions. Features like edges and textures are extracted from each window and compared against the patterns in the pre-trained model. The classifier uses a cascading process, quickly eliminating areas without fire and focusing on regions that potentially contain fire.
-- Real-Time Detection: The system captures frames from a video feed, applies the trained model to detect fire, and triggers an alarm sound if fire is detected.
+<p align="center">
+  <img src="artifacts/violence_detection.png" alt="Violence Detection" width="500"/>
+</p>
 
+- The dataset contains 1000 videos each of violent and non-violent categories.
+- A model was trained using MobileNetV2 architecture.
+- Real-time video footage is processed, and the output is obtained as image frames.
+- The model provides real-time classification capabilities on devices with computing constraints, such as smartphones.
 
+### Fire Detection
 
-# Authors:
+#### Methodology
+
+<p align="center">
+  <img src="artifacts/fire.jpg" alt="Fire Detection" width="500"/>
+</p>
+
+- The `cv2.CascadeClassifier` is used to load a pre-trained fire detection model.
+- The model processes video frames, extracting features like edges and textures, comparing them against the pre-trained model.
+- Real-time detection triggers an alarm if fire patterns are detected.
+
+### Telegram Bot and Alert System
+
+At the end, we integrated a real-time alert system using a Telegram bot and an alarm. The Telegram bot, built with the telebot library, sends instant alerts with captured images to a specified chat when the models detect instances of fire outbreak, violence and fall (e.g. a person falling due to medical emergency). 
+
+---
+
+## Authors
+
 ```bash
-Authors: Hirakjyoti Medhi, Biswajit Bera, Ashutosh Kumar and Roshan Jha
-Email: hirak170802@gmail.com
+Authors: Ashutosh Kumar, Hirakjyoti Medhi, Roshan Jha and Biswajit Bera
+Email: kumarashutosh9694@gmail.com
 ```
+
+*This project was developed as part of a group effort while participating in a Computer Vision Hackathon organized by SarasAI Institute. We won the Hackathon, securing the **First Position!*** 🎉
