@@ -1,6 +1,6 @@
 # Real Time Video Surveillance and Triggering System
 
-There is a critical need for an automated surveillance solution that can continuously and accurately monitor environments for signs of emergencies, providing real-time alerts to facilitate rapid intervention. Traditional systems relying on human operators are often slow and prone to errors, which can result in severe consequences, including loss of life and extensive property damage. Our project aims to develop a real-time emergency surveillance system that leverages computer vision to detect and respond to critical situations such as fires, violence, and medical emergencies.
+There is a critical need for an automated surveillance solution that can continuously and accurately monitor the environments for signs of emergencies, providing real-time alerts to facilitate rapid intervention. Traditional systems relying on human operators are often slow and prone to errors, which can result in severe consequences, including loss of life and extensive property damage. Our project aims to develop a real-time emergency surveillance system that leverages computer vision to detect and respond to critical situations such as fires, violence, and medical emergencies.
 
 <p align="center">
   <img src="artifacts/Violence.png" alt="Violence Detection" width="400"/>
@@ -19,8 +19,6 @@ There is a critical need for an automated surveillance solution that can continu
 
 ## Human Fall Detection
 
-### Methodology
-
 <p align="center">
   <img src="artifacts/mediapipe_opencv.png" alt="Human Fall Detection" width="500"/>
 </p>
@@ -30,8 +28,6 @@ There is a critical need for an automated surveillance solution that can continu
 - The system counts how many times a fall has occurred and detects when the person gets back up.
 
 ## Violence Detection
-
-### Methodology
 
 <p align="center">
   <img src="artifacts/violence_detection.png" alt="Violence Detection" width="500"/>
@@ -43,8 +39,6 @@ There is a critical need for an automated surveillance solution that can continu
 - The model provides real-time classification capabilities on devices with computing constraints, such as smartphones.
 
 ## Fire Detection
-
-### Methodology
 
 <p align="center">
   <img src="artifacts/fire.jpg" alt="Fire Detection" width="500"/>
